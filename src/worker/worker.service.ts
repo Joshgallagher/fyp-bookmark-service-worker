@@ -21,7 +21,7 @@ export class WorkerService {
     ): Promise<void> {
         const [bookmark, count] = await this.repository
             .findAndCount({ where: { articleId: id } });
-        console.log(`BOOKMARK COUNT: ${count}`);
+
         if (count > 0) {
             await this.repository.delete({ articleId: id });
         }
